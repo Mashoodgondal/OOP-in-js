@@ -66,32 +66,103 @@
 
 // -----------Function OverRider-------------
 
-class Employee{
-  constructor(name,address){
+// class Employee{
+//   constructor(name,address){
+//     this.name=name
+//     this.address=address
+//   }
+//   submit(){
+//     alert(this.name+" is from  "+ this.address)
+//   }
+
+// }
+
+// class Other extends Employee{
+//   constructor(name,address,id){
+//     super(name,address , id)
+//     this.id=id
+//   }
+//   total(){
+// alert(this.name +"  is from  "+ this.address+"  totals are  "+this.id)
+//   }
+//   submit(){
+//     alert(this.name+" is from  "+ this.address +" and id is"+ this.id)
+//   }
+
+// }
+// let ahmed = new Employee("ahmed","FSD")
+// let ali = new Other("ali","fsd","2")
+// ahmed.submit()
+// ali.submit()
+// ali.total()
+
+
+// -------------Constructor overriding---------------
+
+
+// class Student{
+//   constructor(name,age){
+//     this.name=name
+//     this.age=age
+//   }
+//   submit(){
+//     alert("Name is: "+this.name +" and age is: "+this.age)
+//   }
+// }
+// class Cr extends Student{
+//   constructor(name,age ,address){
+//     super(name,age )
+//     this.address=address
+//   }
+//   submit(){
+//     alert("our CR name is: "+this.name+" and age is "+this.age +" and address is "+this.address)
+//   }
+//  
+// }
+
+// let ali = new Student("ali","23")
+// let ahmed = new Cr("ahmed","21","MLT")
+// ali.submit()
+// ahmed.description()
+
+
+
+// -------------------Question -------------------
+
+// Suppose you want to add a new method description() in the Animal class that returns a string describing the animal's name.
+//  Override this method in the Dog class so that it includes both the name and the breed of the dog
+//   in the description. How would you implement this, and how can you use the super keyword to avoid
+//    duplicating code?
+
+
+ class Student{
+  constructor(name,age){
     this.name=name
+    this.age=age
+  }
+  submit(){
+    alert("Name is: "+this.name +" and age is: "+this.age)
+  }
+  description(){
+    return "our CR name is: "+this.name+" and age is "+this.age
+  }
+  
+}
+class Cr extends Student{
+  constructor(name,age ,address){
+    super(name,age )
     this.address=address
   }
   submit(){
-    alert(this.name+" is from  "+ this.address)
+    alert("our CR name is: "+this.name+" and age is "+this.age +" and address is "+this.address)
   }
-
+  description(){
+    let patentDescription = super.description()
+    alert(patentDescription +" and address is "+this.address)
+  }
 }
 
-class Other extends Employee{
-  constructor(name,address,id){
-    super(name,address , id)
-    this.id=id
-  }
-  total(){
-alert(this.name +"  is from  "+ this.address+"  totals are  "+this.id)
-  }
-  submit(){
-    alert(this.name+" is from  "+ this.address +" and id is"+ this.id)
-  }
-
-}
-let ahmed = new Employee("ahmed","FSD")
-let ali = new Other("ali","fsd","2")
-ahmed.submit()
+let ali = new Student("ali","23")
+let ahmed = new Cr("ahmed","21","MLT")
 ali.submit()
-ali.total()
+ahmed.description()
